@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
-import { AppContainer } from './App.styled.tsx';
+import { Header } from './Header/Header.tsx';
+import { Intro } from './Main/Intro.tsx';
 
 export const App: React.FC = () => {
   useEffect(() => {
-    const container = document.querySelector('.app-container')!;
+    const body = document.body;
     const [w, h] = [window.innerWidth, window.innerHeight];
-    const count = Math.floor((w * h) / 3600);
+    const count = (w * h) / 14400
 
     for (let i = 0; i < count; i++) {
       const p = document.createElement('div');
@@ -15,9 +16,14 @@ export const App: React.FC = () => {
         --opacity: ${Math.random()}; --speed: ${Math.random()};
         --dx: ${Math.random()}; --dy: ${Math.random()};
       `;
-      container.appendChild(p);
+      body.appendChild(p);
     }
   }, []);
 
-  return <AppContainer className="app-container" />;
+  return(
+    <>
+      <Header />
+      <Intro />
+    </>
+  );
 };

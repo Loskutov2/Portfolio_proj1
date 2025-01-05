@@ -1,70 +1,70 @@
-# Getting Started with Create React App
+---App.tsx
+import React, { useEffect } from 'react';
+import { AppContainer } from './App.styled.tsx';
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+export const App: React.FC = () => {
+  useEffect(() => {
+    const container = document.querySelector('.app-container')!;
+    const [w, h] = [window.innerWidth, window.innerHeight];
+    const count = (w * h) / 14400
 
-## Available Scripts
+    for (let i = 0; i < count; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.cssText = `
+        left: ${Math.random() * w}px; top: ${Math.random() * h}px;
+        --opacity: ${Math.random()}; --speed: ${Math.random()};
+        --dx: ${Math.random()}; --dy: ${Math.random()};
+      `;
+      container.appendChild(p);
+    }
+  }, []);
 
-In the project directory, you can run:
+  return <AppContainer className="app-container" />;
 
-### `npm start`
+---App.styled.tsx
+import styled, { keyframes } from 'styled-components';
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+const float = keyframes`
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(calc(-15px + 30px * var(--dx)), calc(-15px + 30px * var(--dy)));
+  }
+`;
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+export const AppContainer = styled.div`
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(circle, #001d3d, #000814);
+  overflow: hidden;
+  position: relative;
 
-### `npm test`
+  .particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    opacity: calc(0.1 + 0.5 * var(--opacity));
+    animation: ${float} calc(4s + 2s * var(--speed)) ease-in-out infinite;
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: white;
+    }
 
-### `npm run build`
+    &::before {
+      width: 100%;
+      height: 100%;
+    }
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    &::after {
+      width: 10px;
+      height: 10px;
+      filter: blur(10px);
+      transform: translate(-25%, -25%);
+    }
+  }
+`;

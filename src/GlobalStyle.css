@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&family=Montserrat:wght@100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+:root {
+  --background: #ffffff4f;
+  --backgroundGradient: #000a;
+  --text: #1a0811db;
+  --primary: #8087B5;
+  --secondary: #55648D;
+  --container: #ffffff1a;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  --background: #454545;
+  --backgroundGradient: #171717;
+  --text: #fffd;
+  --primary: #55648D;
+  --secondary: #8087B5;
+  --container: #ffffff1a;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+  font-family: 'Montserrat Alternates', serif;
+}
+ul{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+
+.container{
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 1em;
+  margin: 1em 0;
+  background-color: var(--container);
+  border-radius: 1em;
+}
+
+body {
+  color: var(--text);
+  padding: 0 15% 0 15%;
+  width: 70%;
+  height: 100vh;
+  background: radial-gradient(circle, var(--background), var(--backgroundGradient));
+  overflow: hidden;
+  position: relative;
+}
+
+/* Particle styles */
+.particle {
+  position: absolute;
+  z-index: -1;
+  width: 6px;
+  height: 6px;
+  opacity: calc(0.1 + 0.5 * var(--opacity));
+  animation: float calc(4s + 2s * var(--speed)) ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(calc(-15px + 30px * var(--dx)), calc(-15px + 30px * var(--dy)));
+  }
+}
+
+/* Particle glow */
+.particle::before, .particle::after {
+  content: '';
+  position: absolute;
+  background-color: white;
+}
+
+.particle::before {
+  width: 100%;
+  height: 100%;
+}
+
+.particle::after {
+  width: 10px;
+  height: 10px;
+  filter: blur(10px);
+  transform: translate(-25%, -25%);
+}
