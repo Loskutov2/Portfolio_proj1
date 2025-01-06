@@ -28,7 +28,6 @@ export const HeadList = styled.ul`
     font-size: large;
     &:hover,&:focus{
       transform: scale(1.1);
-      transition: transform 150ms linear;
-    }
-  }
+      text-decoration: underline;
+  }}
 `

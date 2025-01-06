@@ -11,8 +11,8 @@
 
 /* Dark Mode */
 body.dark-mode {
-  --background: #454545;
-  --backgroundGradient: #171717;
+  --background: #001d3d;
+  --backgroundGradient: #000814;
   --text: #fffd;
   --primary: #55648D;
   --secondary: #8087B5;
@@ -23,7 +23,7 @@ body.dark-mode {
   margin: 0;
   padding: 0;
   color: var(--text);
-  font-family: 'Montserrat Alternates', serif;
+  font-family: 'Lucida Console';
 }
 ul{
   list-style: none;
@@ -35,56 +35,19 @@ a{
 .container{
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
+  width: 70%;
   padding: 1em;
-  margin: 1em 0;
+  margin: 1em auto;
   background-color: var(--container);
   border-radius: 1em;
 }
 
 body {
   color: var(--text);
-  padding: 0 15% 0 15%;
-  width: 70%;
   height: 100vh;
+  width: 100vw;
   background: radial-gradient(circle, var(--background), var(--backgroundGradient));
   overflow: hidden;
   position: relative;
-}
-
-/* Particle styles */
-.particle {
-  position: absolute;
-  z-index: -1;
-  width: 6px;
-  height: 6px;
-  opacity: calc(0.1 + 0.5 * var(--opacity));
-  animation: float calc(4s + 2s * var(--speed)) ease-in-out infinite;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(calc(-15px + 30px * var(--dx)), calc(-15px + 30px * var(--dy)));
-  }
-}
-
-/* Particle glow */
-.particle::before, .particle::after {
-  content: '';
-  position: absolute;
-  background-color: white;
-}
-
-.particle::before {
-  width: 100%;
-  height: 100%;
-}
-
-.particle::after {
-  width: 10px;
-  height: 10px;
-  filter: blur(10px);
-  transform: translate(-25%, -25%);
+  filter: contrast(150%) hue-rotate(30deg);
 }

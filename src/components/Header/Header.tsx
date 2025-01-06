@@ -27,8 +27,8 @@ export const Header: React.FC = () => {
   return(
       <div className="container">
           <HeadList>
-            <li><a href="https://github.com/Loskutov2">My GitHub</a></li>
-            <li><a href="#">Linked In</a></li>
+            <li><a href="https://github.com/Loskutov2">GitHub</a></li>
+            <li><a href="#">LinkedIn</a></li>
             <li><a href="#">Contacts</a></li>
             <li><ThemeToggle type="checkbox" checked={theme==="light"} onChange={handleToggle} /></li>
           </HeadList>
