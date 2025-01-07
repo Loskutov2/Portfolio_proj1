@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@500&family=Montserrat:wght@100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@font-face {
+  font-family: 'Lucon'; 
+  src: url('./resources/lucon.ttf') format('truetype'); 
+}
 
 :root {
   --background: #ffffff4f;
@@ -23,7 +26,7 @@ body.dark-mode {
   margin: 0;
   padding: 0;
   color: var(--text);
-  font-family: 'Lucida Console';
+  font-family: 'Lucon';
 }
 ul{
   list-style: none;
@@ -43,6 +46,7 @@ a{
 }
 
 body {
+  padding-top: 30px;
   color: var(--text);
   height: 100vh;
   width: 100vw;

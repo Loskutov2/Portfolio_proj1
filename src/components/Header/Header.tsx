@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { HeaderBox, HeadList, ThemeToggle } from "./Header.styled.jsx";
+import { HeadList, ThemeToggle } from "./Header.styled.jsx";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from '../../redux/store.ts';
 import { toggleTheme, setTheme } from '../../redux/themeSlice.ts';
@@ -25,7 +25,7 @@ export const Header: React.FC = () => {
   };
     
   return(
-      <div className="container">
+      <div className="container" style={{margin: "5em auto 0 auto"}}>
           <HeadList>
             <li><a href="https://github.com/Loskutov2">GitHub</a></li>
             <li><a href="#">LinkedIn</a></li>
