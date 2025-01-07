@@ -17,4 +17,8 @@ export const FishEyeSVG = styled.svg.attrs({
   id: "svg-root",
 })`
   display: none;
+  & def filter img{
+  height: 150vh;
+  width: 150vw;
+  transform: translate(50% 50%);}
 `;

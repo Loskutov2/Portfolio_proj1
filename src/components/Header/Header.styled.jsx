@@ -23,7 +23,17 @@ export const HeadList = styled.ul`
   display: flex;
   & li{
     margin: auto;
-    font-size: x-large;
+    font-size: large;
+    /* transform: translate(0);
+    &::after{
+      content: '';
+      position: absolute;
+      top: -40px;
+      left: -20px;
+      width: 100%;
+      height: 100%;
+      pointer-events: all;
+    } */
     &:hover,&:focus{
       transform: scale(1.1);
       text-decoration: underline;

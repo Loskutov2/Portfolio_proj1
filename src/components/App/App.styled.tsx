@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Particle = styled.div<{ left: number; top: number; speed: number; opacity: number; floatX: number; floatY: number}>`
+export const Particle = styled.div<{ left: number; top: number; speed: number; opacity: number; floatx: number; floaty: number}>`
   position: absolute;
   z-index: -1;
   width: 6px;
@@ -30,7 +30,7 @@ export const Particle = styled.div<{ left: number; top: number; speed: number; o
       transform: translate(0, 0);
     }
     50% {
-      transform: translate(calc(-15px + 30px * ${({ floatX }) => floatX}), calc(-15px + 30px * ${({ floatY }) => floatY}));
+      transform: translate(calc(-15px + 30px * ${({ floatx }) => floatx}), calc(-15px + 30px * ${({ floaty }) => floaty}));
     }
   }
 `;

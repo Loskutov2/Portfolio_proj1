@@ -11,26 +11,27 @@ export const App: React.FC = () => {
     left: Math.random() * w,
     top: Math.random() * h,
     opacity: Math.random(),
-    floatX: Math.random(),
-    floatY: Math.random(),
+    floatx: Math.random(),
+    floaty: Math.random(),
     speed:Math.random()
   }));
   useEffect(() => {
-    const body = document.body;
-    particles.forEach(({ left, top, opacity, floatX, floatY, speed}) => {
+    particles.forEach(({ left, top, opacity, floatx, floaty, speed}) => {
       const container = document.createElement('div');
-      body.appendChild(container);
+      document.body.appendChild(container);
       const root = createRoot(container);
       root.render(<Particle 
         left={left}
         top={top}
         opacity={opacity}
-        floatX={floatX}
-        floatY={floatY}
+        floatx={floatx}
+        floaty={floaty}
         speed={speed}
       />);
     })
   }, []);
+
+  
 
   return(
     <FishEye>
