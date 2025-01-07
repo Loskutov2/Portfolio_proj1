@@ -25,7 +25,7 @@ export const Header: React.FC = () => {
   };
     
   return(
-      <div className="container" style={{margin: "5em auto 0 auto"}}>
+      <div className="container">
           <HeadList>
             <li><a href="https://github.com/Loskutov2">GitHub</a></li>
             <li><a href="#">LinkedIn</a></li>

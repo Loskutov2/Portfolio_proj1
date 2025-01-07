@@ -34,11 +34,12 @@ export const App: React.FC = () => {
   
 
   return(
-    <FishEye>
+    <div className="app">
+      {/* <FishEye /> */}
       <Scanlines>
         <Header />
         <Intro />
       </Scanlines>
-    </FishEye>
+    </div>
   );
 };

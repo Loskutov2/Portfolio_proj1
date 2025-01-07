@@ -30,7 +30,7 @@ export const Particle = styled.div<{ left: number; top: number; speed: number; o
       transform: translate(0, 0);
     }
     50% {
-      transform: translate(calc(-15px + 30px * ${({ floatx }) => floatx}), calc(-15px + 30px * ${({ floaty }) => floaty}));
+      transform: translate(calc(-25px + 50px * ${({floatx }) => floatx}), calc(-25px + 50px * ${({ floaty }) => floaty}));
     }
   }
 `;
@@ -39,6 +39,7 @@ export const Scanlines = styled.div `
     position: absolute;
     width: 100%;
     height: 100%;
+    mix-blend-mode: multiply; 
     background: repeating-linear-gradient(
         0deg,
         rgba(0, 0, 0, 0.1),
