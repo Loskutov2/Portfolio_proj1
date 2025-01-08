@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { Header } from '../Header/Header.tsx';
 import { Intro } from '../Main/Intro.tsx';
-import { Particle, Scanlines } from './App.styled.tsx';
+import { Particle } from './App.styled.tsx';
 import { createRoot } from 'react-dom/client';
-import { FishEye } from '../FishEye/FishEye.tsx';
+import { Filter } from '../Filter/Filter.tsx';
 
 export const App: React.FC = () => {
   const [w, h] = [window.innerWidth, window.innerHeight]
@@ -31,15 +31,10 @@ export const App: React.FC = () => {
     })
   }, []);
 
-  
-
   return(
-    <div className="app">
-      {/* <FishEye /> */}
-      <Scanlines>
-        <Header />
-        <Intro />
-      </Scanlines>
-    </div>
+    <Filter>
+      <Header />
+      <Intro />
+    </Filter>
   );
 };

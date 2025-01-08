@@ -34,17 +34,3 @@ export const Particle = styled.div<{ left: number; top: number; speed: number; o
     }
   }
 `;
-
-export const Scanlines = styled.div `
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    mix-blend-mode: multiply; 
-    background: repeating-linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.1),
-        rgba(0, 0, 0, 0.1) 4px,
-        rgba(255, 255, 255, 0) 4px,
-        rgba(255, 255, 255, 0) 8px
-    );
-`
